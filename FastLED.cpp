@@ -8,6 +8,8 @@ volatile uint32_t fuckit;
 
 FASTLED_NAMESPACE_BEGIN
 
+extern "C" void yield(void) { }
+
 void *pSmartMatrix = NULL;
 
 CFastLED FastLED;
@@ -232,9 +234,9 @@ void CFastLED::setMaxRefreshRate(uint16_t refresh, bool constrain) {
 
 extern "C" int atexit(void (* /*func*/ )()) { return 0; }
 
-#ifdef FASTLED_NEEDS_YIELD
-extern "C" void yield(void) { }
-#endif
+//#ifdef FASTLED_NEEDS_YIELD
+//extern "C" void yield(void) { }
+//#endif
 
 #ifdef NEED_CXX_BITS
 namespace __cxxabiv1
